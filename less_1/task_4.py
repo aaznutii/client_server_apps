@@ -7,14 +7,21 @@ WORDS_LIST = ['разработка', 'администрирование', 'pro
 
 
 def get_bytes_from_words(words_list):
+    result_list = []
     for el in words_list:
         el = el.encode()
-        print(f'Преобразование: {el.encode()}: Тип - {type(el)}: Длинна - {len(el)}')
-        print(f'Содержание - {bytes(el, encoding="utf-8")}: '
-              f'Тип - {type(bytes(el, encoding="utf-8"))}: '
-              f'Длинна - {len(bytes(el, encoding="utf-8"))}')
-        if len(el) != len(bytes(el, encoding="utf-8")):
+        print(f'Преобразование: {el}: Тип - {type(el)}: Длинна - {len(el)}')
+        if len(el) != len(el.decode()):
             print('Невозможно записать в байтовом типе.\n')
+        result_list.append(el)
+    return result_list
 
 
-get_bytes_from_words(WORDS_LIST)
+def get_words_from_bytes(bytes_list):
+    print('\n============Преобразование в слова из байтов============')
+    for el in bytes_list:
+        el = el.decode()
+        print(f'Преобразование: {el}: Тип - {type(el)}: Длинна - {len(el)}')
+
+
+get_words_from_bytes(get_bytes_from_words(WORDS_LIST))

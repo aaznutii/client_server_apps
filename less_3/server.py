@@ -12,7 +12,8 @@ def action_with_client_msg(message):
         return {RESPONSE: 200}
     else:
         return {
-            RESPONSE_DEFAULT_IP_ADDRESS: 400,
+            # RESPONSE_DEFAULT_IP_ADDRESS: 400,
+            RESPONSE: 400,
             ERROR: 'PRESENCE IS INVALID'
         }
 

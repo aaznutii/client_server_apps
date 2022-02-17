@@ -1,9 +1,10 @@
 import os
 import sys
 import unittest
+from unittest.mock import patch
 sys.path.append(os.path.join(os.getcwd(), ' '))
-from less_3.client import create_presance, action_with_server_msg
-from less_3.common.variables import RESPONSE, ERROR, USER, ACCOUNT_NAME, ACTION, TIME, PRESENCE
+from less_3_4.client import create_presance, action_with_server_msg, main
+from less_3_4.common.variables import RESPONSE, ERROR, USER, ACCOUNT_NAME, ACTION, TIME, PRESENCE
 
 class Test_client(unittest.TestCase):
 
@@ -30,6 +31,10 @@ class Test_client(unittest.TestCase):
         self.assertRaises(ValueError, action_with_server_msg, {ERROR: 'PRESENCE IS INVALID'})
 
 #      Добавить __main__
+    @patch.object(sys, 'argv', ['client.py'])
+    def test_main_ConnectionRefusedError(self):
+        self.assertRaises(ConnectionRefusedError, main)
+
 
 if __name__ == '__main__':
     unittest.main()

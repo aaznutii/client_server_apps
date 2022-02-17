@@ -1,6 +1,6 @@
 
 import json
-from less_3.common.variables import MAX_PACKAGE_LENGTH, DEFAULT_ENCODING
+from less_3_4.common.variables import MAX_PACKAGE_LENGTH, DEFAULT_ENCODING
 
 def get_message(client):
     response = client.recv(MAX_PACKAGE_LENGTH)

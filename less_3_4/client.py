@@ -3,8 +3,8 @@ import socket
 import sys
 import time
 
-from less_3.common.utils import send_message, get_message
-from less_3.common.variables import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONSE, DEFAULT_IP_ADDRESS, \
+from less_3_4.common.utils import send_message, get_message
+from less_3_4.common.variables import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONSE, DEFAULT_IP_ADDRESS, \
     DEFAULT_PORT
 
 def create_presance(account_name='Guest'):
@@ -21,7 +21,7 @@ def action_with_server_msg(message):
     if RESPONSE in message:
         if message[RESPONSE] == 200:
             return '200 : ok'
-        return f'400 : {message}'
+        return f'400 : {message["error"]}'
     raise ValueError
 
 

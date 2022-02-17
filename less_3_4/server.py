@@ -2,8 +2,8 @@ import json
 import socket
 import sys
 
-from less_3.common.utils import get_message, send_message
-from less_3.common.variables import ACTION, PRESENCE, ACCOUNT_NAME, USER, RESPONSE, RESPONSE_DEFAULT_IP_ADDRESS, ERROR, \
+from less_3_4.common.utils import get_message, send_message
+from less_3_4.common.variables import ACTION, PRESENCE, ACCOUNT_NAME, USER, RESPONSE, RESPONSE_DEFAULT_IP_ADDRESS, ERROR, \
     TIME, DEFAULT_PORT, MAX_CONNECTIONS
 
 def action_with_client_msg(message):
@@ -11,11 +11,7 @@ def action_with_client_msg(message):
         and message[USER][ACCOUNT_NAME] == 'Guest':
         return {RESPONSE: 200}
     else:
-        return {
-            # RESPONSE_DEFAULT_IP_ADDRESS: 400,
-            RESPONSE: 400,
-            ERROR: 'PRESENCE IS INVALID'
-        }
+        return {RESPONSE: 400, ERROR: 'PRESENCE IS INVALID'}
 
 def main():
     try:

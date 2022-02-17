@@ -2,8 +2,8 @@ import json
 import socket
 import sys
 
-from less_3_4.common.utils import get_message, send_message
-from less_3_4.common.variables import ACTION, PRESENCE, ACCOUNT_NAME, USER, RESPONSE, RESPONSE_DEFAULT_IP_ADDRESS, ERROR, \
+from common.utils import get_message, send_message
+from common.variables import ACTION, PRESENCE, ACCOUNT_NAME, USER, RESPONSE, RESPONSE_DEFAULT_IP_ADDRESS, ERROR, \
     TIME, DEFAULT_PORT, MAX_CONNECTIONS
 
 def action_with_client_msg(message):

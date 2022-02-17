@@ -2,9 +2,9 @@ import os
 import sys
 import unittest
 # from unittest.mock import patch
-sys.path.append(os.path.join(os.getcwd(), ' '))
-from less_3_4.server import action_with_client_msg
-from less_3_4.common.variables import RESPONSE, ERROR, USER, ACCOUNT_NAME, ACTION, TIME, PRESENCE
+sys.path.append(os.path.join(os.getcwd(), '..'))
+from server import action_with_client_msg
+from common.variables import RESPONSE, ERROR, USER, ACCOUNT_NAME, ACTION, TIME, PRESENCE
 
 class TestServer(unittest.TestCase):
 

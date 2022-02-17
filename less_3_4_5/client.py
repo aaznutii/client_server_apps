@@ -3,8 +3,8 @@ import socket
 import sys
 import time
 
-from less_3_4.common.utils import send_message, get_message
-from less_3_4.common.variables import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONSE, DEFAULT_IP_ADDRESS, \
+from common.utils import send_message, get_message
+from common.variables import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONSE, DEFAULT_IP_ADDRESS, \
     DEFAULT_PORT
 
 def create_presance(account_name='Guest'):

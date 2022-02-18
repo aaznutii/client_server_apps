@@ -3,7 +3,7 @@ import sys
 import unittest
 from unittest.mock import patch
 sys.path.append(os.path.join(os.getcwd(), '..'))
-from client import create_presance, action_with_server_msg, main
+from client import create_presence, action_with_server_msg, main
 from common.variables import RESPONSE, ERROR, USER, ACCOUNT_NAME, ACTION, TIME, PRESENCE
 
 class Test_client(unittest.TestCase):
@@ -17,7 +17,7 @@ class Test_client(unittest.TestCase):
         pass
 
     def test_def_create_presance(self):
-        test = create_presance()
+        test = create_presence()
         test[TIME] = 1.1
         self.assertEqual(test, {ACTION: PRESENCE, TIME: 1.1, USER:{ACCOUNT_NAME: 'Guest'}})
 

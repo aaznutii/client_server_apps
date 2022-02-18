@@ -54,7 +54,7 @@ def main():
         send_message(transport, message_to_server)
         answer = action_with_server_msg(get_message(transport))
         CLIENT_LOGGER.info(f'Принят ответ от сервера {answer}')
-        print(answer)
+        # print(answer)
     except json.JSONDecodeError:
         CLIENT_LOGGER.error('Не удалось декодировать полученную Json строку.')
     except ReqFieldMissingError as missing_error:

@@ -24,8 +24,12 @@ PRESENCE = 'presence'
 RESPONSE = 'response'
 ERROR = 'error'
 RESPONSE_DEFAULT_IP_ADDRESS = 'response_default_ip_address'
+SENDER = 'sender'
 
 # Установить уровень логирования
 
 LOGGING_LEVEL_SERVER = logging.DEBUG
 LOGGING_LEVEL_CLIENT = logging.DEBUG
+
+MESSAGE = 'message'
+MESSAGE_TEXT = 'mess_text'

@@ -4,6 +4,8 @@ import sys
 import time
 import logging
 import logs.config_client_log
+
+from logs.log_func_actions import log
 from logs.errors import ReqFieldMissingError
 from common.utils import send_message, get_message
 from common.variables import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONSE, DEFAULT_IP_ADDRESS, DEFAULT_PORT
@@ -12,6 +14,7 @@ from common.variables import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONS
 CLIENT_LOGGER = logging.getLogger('client')
 
 
+@log
 def create_presence(account_name='Guest'):
     result = {
         ACTION: PRESENCE,
@@ -22,6 +25,7 @@ def create_presence(account_name='Guest'):
     return result
 
 
+@log
 def action_with_server_msg(message):
     CLIENT_LOGGER.debug(f'Разбор сообщения от сервера: {message}')
     if RESPONSE in message:
@@ -32,6 +36,7 @@ def action_with_server_msg(message):
     raise ReqFieldMissingError(RESPONSE)
 
 
+@log
 def main():
     try:
         CLIENT_LOGGER.info(f'Начало работы функции main. Проверка указанных параметров')

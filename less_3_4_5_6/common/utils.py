@@ -1,5 +1,9 @@
 
 import json
+import sys
+sys.path.append('../')
+
+from logs.log_func_actions import log
 from common.variables import MAX_PACKAGE_LENGTH, DEFAULT_ENCODING
 
 def get_message(client):

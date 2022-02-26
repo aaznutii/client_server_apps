@@ -4,6 +4,8 @@ import socket
 import sys
 import logging
 import logs.config_server_log
+
+from logs.log_func_actions import log
 from logs.errors import IncorrectDataRecivedError
 from common.utils import get_message, send_message
 from common.variables import ACTION, PRESENCE, ACCOUNT_NAME, USER, RESPONSE, ERROR, TIME, DEFAULT_PORT, MAX_CONNECTIONS
@@ -13,7 +15,7 @@ sys.path.append(os.path.join(os.getcwd(), '../'))
 # Инициализация логирования сервера.
 SERVER_LOGGER = logging.getLogger('server')
 
-
+@log
 def action_with_client_msg(message):
     SERVER_LOGGER.info(f'Начало работы функции action_with_client_msg')
     if ACTION in message and message[ACTION] == PRESENCE and TIME in message and USER in message \
@@ -26,6 +28,7 @@ def action_with_client_msg(message):
         return {RESPONSE: 400, ERROR: 'PRESENCE IS INVALID'}
 
 
+@log
 def main():
     SERVER_LOGGER.info(f'Начало работы функции main. Проверка указанных параметров')
     try:

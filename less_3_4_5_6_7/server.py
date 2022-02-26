@@ -32,8 +32,7 @@ def action_with_client_msg(message, messages_list, client):
         send_message(client, {RESPONSE: 200})
         return
 
-    elif ACTION in message and message[ACTION] == MESSAGE and TIME in message and USER in message \
-            and MESSAGE_TEXT in message:
+    elif ACTION in message and message[ACTION] == MESSAGE and TIME in message and MESSAGE_TEXT in message:
         SERVER_LOGGER.debug(f'Проверка action_with_client_msg структуры сообщения прошла успешно.{message}')
         messages_list.append((message[ACCOUNT_NAME], message[MESSAGE_TEXT]))
         return

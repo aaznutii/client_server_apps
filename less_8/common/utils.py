@@ -4,6 +4,7 @@ import sys
 sys.path.append('../')
 
 from logs.log_func_actions import log
+from logs.errors import IncorrectDataRecivedError, NonDictInputError
 from common.variables import MAX_PACKAGE_LENGTH, DEFAULT_ENCODING
 
 def get_message(client):
@@ -14,12 +15,21 @@ def get_message(client):
             json_response = json.loads(response)
             if isinstance(json_response, dict):
                 return json_response
-            raise ValueError
+            raise IncorrectDataRecivedError
         raise ValueError
-    raise ValueError
+    raise IncorrectDataRecivedError
 
 
 def send_message(sock, message):
-    json_message = json.dumps(message)
-    json_message = json_message.encode(DEFAULT_ENCODING)
-    sock.send(json_message)
+    """
+    Утилита кодирования и отправки сообщения
+    принимает словарь и отправляет его
+    :param sock:
+    :param message:
+    :return:
+    """
+    if not isinstance(message, dict):
+        raise NonDictInputError
+    js_message = json.dumps(message)
+    encoded_message = js_message.encode(DEFAULT_ENCODING)
+    sock.send(encoded_message)

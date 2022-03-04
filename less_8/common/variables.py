@@ -19,12 +19,15 @@ ACTION = 'action'
 TIME = 'time'
 USER = 'user'
 ACCOUNT_NAME = 'account_name'
+SENDER = 'from'
+DESTINATION = 'to'
 
+# Другие ключи
 PRESENCE = 'presence'
 RESPONSE = 'response'
 ERROR = 'error'
 RESPONSE_DEFAULT_IP_ADDRESS = 'response_default_ip_address'
-SENDER = 'sender'
+EXIT = 'exit'
 
 # Установить уровень логирования
 
@@ -33,3 +36,12 @@ LOGGING_LEVEL_CLIENT = logging.DEBUG
 
 MESSAGE = 'message'
 MESSAGE_TEXT = 'mess_text'
+
+# Словари - ответы:
+# 200
+RESPONSE_200 = {RESPONSE: 200}
+# 400
+RESPONSE_400 = {
+    RESPONSE: 400,
+    ERROR: None
+}
